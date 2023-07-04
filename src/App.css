@@ -1,6 +1,15 @@
+header,
+main {
+  padding: 1.5rem;
+}
+
+header {
+  text-align: center;
+}
+
 .logo {
   height: 6em;
-  padding: 1.5em;
+  margin-inline: 0.5rem;
   will-change: filter;
   transition: filter 300ms;
 }
@@ -9,11 +18,6 @@
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-header,
-main {
-  padding: 1.5rem;
 }
 
 main {
@@ -37,7 +41,7 @@ main {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
+  .logo--react {
     animation: logo-spin infinite 20s linear;
   }
 }

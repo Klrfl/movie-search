@@ -21,16 +21,24 @@ function App() {
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-
       <header>
+        <div className="logos">
+          <img
+            src={reactLogo}
+            className="logo logo--react"
+            width="40"
+            height="40"
+            alt="React logo"
+          />
+          <img
+            src={viteLogo}
+            className="logo logo--vite"
+            width="40"
+            height="40"
+            alt="Vite logo"
+          />
+        </div>
+
         <h1>React Movie Search</h1>
         <p>
           I am bored, so I decided to learn React and make this movie search
