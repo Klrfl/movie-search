@@ -1,5 +1,6 @@
 import { useRef } from "react";
 
+import "./MovieForm.css";
 export default function MovieForm({ onSearch }) {
   const movieInput = useRef(null);
 
