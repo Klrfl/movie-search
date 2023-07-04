@@ -1,0 +1,21 @@
+.movie {
+  border-bottom: 2px solid;
+  padding-block-end: 1rem;
+
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.movie__data {
+  padding: 1.5rem;
+}
+
+.movie__vote-and-popularity {
+  display: flex;
+  justify-content: space-between;
+}
+
+.movie__image {
+  margin: 0 auto;
+}

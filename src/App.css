@@ -13,27 +13,18 @@
 
 header,
 main {
-  padding: 2rem;
+  padding: 1.5rem;
+}
+
+main {
+  max-width: 200ch;
+  margin-inline: auto;
 }
 
 .movies {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1rem 0.5rem;
-}
-
-.movie {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-}
-
-.movie__data {
-  padding: 1.5rem;
-}
-
-.movie__image {
-  margin: 0;
 }
 
 @keyframes logo-spin {

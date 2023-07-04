@@ -1,12 +1,22 @@
 import MovieForm from "./components/MovieForm";
+import Movie from "./components/Movie";
 
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 
+import { useState } from "react";
+
 function App() {
-  function getSearchString(string) {
-    console.log(string);
+  const [movieArray, setMovieArray] = useState([]);
+
+  async function getSearchString(inputString) {
+    const request = await fetch(
+      `https://api.themoviedb.org/3/search/movie?query=${inputString}&api_key=45960a70cb9432c49c8201ac69b90f8a`
+    );
+    const response = await request.json();
+    console.log(response);
+    setMovieArray(response.results);
   }
 
   return (
@@ -22,11 +32,22 @@ function App() {
 
       <header>
         <h1>React Movie Search</h1>
+        <p>
+          I am bored, so I decided to learn React and make this movie search
+          app.
+        </p>
         <MovieForm onSearch={getSearchString}></MovieForm>
       </header>
+
       <main>
-        <h2>Movies</h2>
-        <p>Movies will be displayed here. currently under construction</p>
+        <h2>Search results</h2>
+
+        <div className="movies">
+          {movieArray.length === 0 && <p>Please search for a movie</p>}
+          {movieArray.map((movie) => (
+            <Movie key={movie.id} movie={movie}></Movie>
+          ))}
+        </div>
       </main>
     </>
   );
