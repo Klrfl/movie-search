@@ -15,7 +15,11 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-
+:root {
+  --border-color: #444;
+  --button-bg: #1a1a1a;
+  --movie-bg: #333;
+}
 a {
   font-weight: 500;
   color: #646cff;
@@ -42,7 +46,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--button-bg);
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -53,16 +57,23 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+.btn {
+  margin-block-start: 0.25rem;
+}
 
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: #ddd;
   }
+
+  :root {
+    --border-color: #aaa;
+    --button-bg: #ddd;
+    --movie-bg: #efefef;
+  }
+
   a:hover {
     color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
   }
 }

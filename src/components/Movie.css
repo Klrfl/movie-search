@@ -1,6 +1,6 @@
 .movie {
-  border-bottom: 2px solid;
-  padding-block-end: 1rem;
+  border: 2px solid var(--border-color);
+  background: var(--movie-bg);
 
   display: flex;
   justify-content: space-between;
@@ -12,12 +12,12 @@
 }
 
 .movie__data {
-  padding-block: 1.5rem;
+  padding: 1.5rem;
 }
 
 .movie__title {
   margin-block: 0 1rem;
-  line-height: 1;
+  line-height: 0.9;
 }
 
 .movie__vote-and-popularity {
@@ -26,6 +26,7 @@
 }
 
 .movie__details {
+  border: 5px solid var(--border-color);
   max-width: 100ch;
   padding: 2rem;
 }
@@ -39,9 +40,12 @@
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+.movie__overview {
+  line-height: 1.7;
 }
 
 .movie__details-text {
@@ -55,12 +59,4 @@
 .movie__details-image,
 .movie__image {
   margin: 0 auto;
-}
-
-@media screen and (min-width: 100ch) {
-  .close-btn {
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
 }
