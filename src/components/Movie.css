@@ -7,8 +7,17 @@
   flex-direction: column;
 }
 
+.movie p {
+  margin-block: 0.25em;
+}
+
 .movie__data {
-  padding: 1.5rem;
+  padding-block: 1.5rem;
+}
+
+.movie__title {
+  margin-block: 0 1rem;
+  line-height: 1;
 }
 
 .movie__vote-and-popularity {
@@ -16,6 +25,42 @@
   justify-content: space-between;
 }
 
+.movie__details {
+  max-width: 100ch;
+  padding: 2rem;
+}
+
+.movie__details::backdrop {
+  background: #222a;
+  backdrop-filter: blur(0.5rem);
+}
+
+.movie__details-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.movie__details-text {
+  flex: 2 1 35ch;
+}
+
+.movie__details-image {
+  flex: 1 1 30ch;
+}
+
+.movie__details-image,
 .movie__image {
   margin: 0 auto;
+}
+
+@media screen and (min-width: 100ch) {
+  .close-btn {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
 }
