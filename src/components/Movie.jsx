@@ -31,7 +31,9 @@ export default function Movie({ movie }) {
           <p>{movie.vote_average}</p>
         </div>
 
-        <button onClick={seeDetails}>Details</button>
+        <button onClick={seeDetails} className="btn">
+          Details
+        </button>
 
         {/* details box */}
         <dialog ref={detailsBox} className="movie__details">
@@ -43,13 +45,13 @@ export default function Movie({ movie }) {
                 Close
               </button>
 
-              <h2>{movie.title}</h2>
+              <h2 className="movie__title">{movie.title}</h2>
               <div className="movie_vote-and-popularity">
                 <p>{movie.popularity}</p>
                 <p>{movie.vote_average}</p>
               </div>
 
-              <p>{movie.overview}</p>
+              <p className="movie__overview">{movie.overview}</p>
             </div>
 
             <figure className="movie__details-image">
