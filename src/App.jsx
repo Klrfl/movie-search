@@ -9,14 +9,26 @@ import { useState } from "react";
 
 function App() {
   const [movieArray, setMovieArray] = useState([]);
+  const [errorMessage, setErrorMessage] = useState(
+    "Please search for a movie."
+  );
 
   async function getSearchString(inputString) {
-    const request = await fetch(
-      `https://api.themoviedb.org/3/search/movie?query=${inputString}&api_key=45960a70cb9432c49c8201ac69b90f8a`
-    );
-    const response = await request.json();
-    console.log(response);
-    setMovieArray(response.results);
+    try {
+      const request = await fetch(
+        `${
+          import.meta.env.VITE_BASE_API_URL
+        }/search/movie?query=${inputString}&api_key=${
+          import.meta.env.VITE_API_KEY
+        }`
+      );
+      const response = await request.json();
+      console.log(response);
+      setMovieArray(response.results);
+    } catch (error) {
+      setErrorMessage(error.message);
+      console.error(error.message);
+    }
   }
 
   return (
@@ -51,7 +63,7 @@ function App() {
         <h2>Search results</h2>
 
         <div className="movies">
-          {movieArray.length === 0 && <p>Please search for a movie</p>}
+          {movieArray.length === 0 && <p>{errorMessage}</p>}
           {movieArray.map((movie) => (
             <Movie key={movie.id} movie={movie}></Movie>
           ))}
