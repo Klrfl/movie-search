@@ -1,11 +1,11 @@
-header form {
+.query-form {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
 }
 
-header input {
+.query-input {
   padding: 1rem;
   border: 2px solid var(--border-color);
 }

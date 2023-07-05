@@ -10,9 +10,16 @@ export default function MovieForm({ onSearch }) {
   }
 
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
-      <input type="text" placeholder="put url here" ref={movieInput} />
-      <button type="submit">Submit</button>
+    <form className="query-form" onSubmit={(e) => handleSubmit(e)}>
+      <input
+        type="text"
+        placeholder="put url here"
+        className="query-input"
+        ref={movieInput}
+      />
+      <button type="submit" className="btn btn--submit">
+        Submit
+      </button>
     </form>
   );
 }
