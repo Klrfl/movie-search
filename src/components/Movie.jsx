@@ -9,6 +9,10 @@ export default function Movie({ movie }) {
     setModalIsOpen(true);
   }
 
+  function handleModalIsClosed() {
+    setModalIsOpen(false);
+  }
+
   return (
     <div className="movie">
       <div className="movie__data">
@@ -32,7 +36,7 @@ export default function Movie({ movie }) {
         </button>
 
         {/* details box */}
-        <Modal isOpen={modalIsOpen}>
+        <Modal isOpen={modalIsOpen} hasClosed={handleModalIsClosed}>
           <div className="movie__details-text">
             <h2 className="movie__title">{movie.title}</h2>
             <div className="movie_vote-and-popularity">

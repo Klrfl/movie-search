@@ -1,5 +1,8 @@
 import { useEffect, useRef } from "react";
-export default function Modal({ isOpen, children }) {
+
+import "./Modal.css";
+
+export default function Modal({ isOpen, hasClosed, children }) {
   const dialog = useRef(null);
   const closeBtn = useRef(null);
 
@@ -10,6 +13,7 @@ export default function Modal({ isOpen, children }) {
   function closeModal(e) {
     e.preventDefault();
     dialog.current.close();
+    hasClosed();
   }
 
   useEffect(() => {
@@ -17,7 +21,7 @@ export default function Modal({ isOpen, children }) {
   }, [isOpen]);
 
   return (
-    <dialog ref={dialog}>
+    <dialog ref={dialog} className="modal">
       <form>
         <button onClick={(e) => closeModal(e)} ref={closeBtn}>
           Close

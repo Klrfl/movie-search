@@ -10,6 +10,10 @@ export default function OpenDialog({ children }) {
     setModalIsOpen(true);
   }
 
+  function handleCloseDialog() {
+    setModalIsOpen(false);
+  }
+
   return (
     <>
       <button
@@ -18,7 +22,9 @@ export default function OpenDialog({ children }) {
         title="more info on this app">
         <i className="fa-solid fa-question"></i>
       </button>
-      <Modal isOpen={modalIsOpen}>Something Something</Modal>
+      <Modal isOpen={modalIsOpen} hasClosed={handleCloseDialog}>
+        {children}
+      </Modal>
     </>
   );
 }
