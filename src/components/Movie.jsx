@@ -1,22 +1,18 @@
 import "./Movie.css";
-import { useRef } from "react";
+import Modal from "../components/Modal";
+import { useState } from "react";
 
 export default function Movie({ movie }) {
-  const detailsBox = useRef(null);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   function seeDetails() {
-    detailsBox.current.showModal();
-  }
-
-  function closeDetails(e) {
-    e.preventDefault();
-    detailsBox.current.close();
+    setModalIsOpen(true);
   }
 
   return (
     <div className="movie">
       <div className="movie__data">
-        <h2 className="movie__title">{movie.title}</h2>
+        <h2 className="movie__title">{movie.original_title}</h2>
         <p>
           Released on{" "}
           {Intl.DateTimeFormat("en", {
@@ -36,32 +32,24 @@ export default function Movie({ movie }) {
         </button>
 
         {/* details box */}
-        <dialog ref={detailsBox} className="movie__details">
-          <form className="movie__details-content">
-            <div className="movie__details-text">
-              <button
-                onClick={(e) => closeDetails(e)}
-                className="btn close-btn">
-                Close
-              </button>
-
-              <h2 className="movie__title">{movie.title}</h2>
-              <div className="movie_vote-and-popularity">
-                <p>{movie.popularity}</p>
-                <p>{movie.vote_average}</p>
-              </div>
-
-              <p className="movie__overview">{movie.overview}</p>
+        <Modal isOpen={modalIsOpen}>
+          <div className="movie__details-text">
+            <h2 className="movie__title">{movie.title}</h2>
+            <div className="movie_vote-and-popularity">
+              <p>{movie.popularity}</p>
+              <p>{movie.vote_average}</p>
             </div>
 
-            <figure className="movie__details-image">
-              <img
-                src={`${import.meta.env.VITE_BASE_IMG_URL}${movie.poster_path}`}
-                alt={`Movie poster for ${movie.title}`}
-              />
-            </figure>
-          </form>
-        </dialog>
+            <p className="movie__overview">{movie.overview}</p>
+          </div>
+
+          <figure className="movie__details-image">
+            <img
+              src={`${import.meta.env.VITE_BASE_IMG_URL}${movie.poster_path}`}
+              alt={`Movie poster for ${movie.title}`}
+            />
+          </figure>
+        </Modal>
       </div>
 
       <figure className="movie__image">

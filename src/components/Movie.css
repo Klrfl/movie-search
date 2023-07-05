@@ -27,7 +27,6 @@
 
 .movie__details {
   border: 5px solid var(--border-color);
-  max-width: 100ch;
   padding: 2rem;
 }
 
