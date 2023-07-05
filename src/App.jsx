@@ -1,5 +1,6 @@
 import MovieForm from "./components/MovieForm";
 import Movie from "./components/Movie";
+import OpenDialog from "./components/OpenDialog";
 
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
@@ -57,6 +58,30 @@ function App() {
           app.
         </p>
         <MovieForm onSearch={getSearchString}></MovieForm>
+        <OpenDialog>
+          <h2>Klrfl Movie Search</h2>
+          <p>
+            This is my second ever React app I have ever made, scaffolded with
+            Vite. I used a free movie API from{" "}
+            <a
+              href="https://developer.themoviedb.org/reference/intro/getting-started"
+              target="_blank"
+              rel="noreferrer">
+              The Movie Database
+            </a>
+            , you should check it out.
+          </p>
+          <p>
+            Check out this{" "}
+            <a
+              href="https://github.com/Klrfl/movie-search"
+              target="_blank"
+              rel="noreferrer">
+              project&apos;s source code
+            </a>{" "}
+            on GitHub.
+          </p>
+        </OpenDialog>
       </header>
 
       <main>
