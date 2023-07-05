@@ -1,0 +1,10 @@
+.modal {
+  max-width: 100ch;
+  border: 5px solid var(--border-color);
+  padding: 2rem;
+}
+
+.modal::backdrop {
+  background: #222a;
+  backdrop-filter: blur(0.5rem);
+}
