@@ -45,6 +45,10 @@
   flex: 1 1 30ch;
 }
 
+.movie__details-image img {
+  margin-inline: auto;
+}
+
 .movie__details-image,
 .movie__image {
   margin: 0 auto;

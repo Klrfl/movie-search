@@ -16,7 +16,8 @@ export default function Movie({ movie }) {
   return (
     <div className="movie">
       <div className="movie__data">
-        <h2 className="movie__title">{movie.original_title}</h2>
+        <h2 className="movie__title">{movie.title}</h2>
+        <p className="movie__original-title">{movie.original_title}</p>
         <p>
           Released on{" "}
           {Intl.DateTimeFormat("en", {
@@ -37,22 +38,26 @@ export default function Movie({ movie }) {
 
         {/* details box */}
         <Modal isOpen={modalIsOpen} hasClosed={handleModalIsClosed}>
-          <div className="movie__details-text">
-            <h2 className="movie__title">{movie.title}</h2>
-            <div className="movie_vote-and-popularity">
-              <p>{movie.popularity}</p>
-              <p>{movie.vote_average}</p>
+          <div className="movie__details-content">
+            <div className="movie__details-text">
+              <h3 className="movie__title">{movie.title}</h3>
+              <p className="movie__title">{movie.original_title}</p>
+
+              <div className="movie_vote-and-popularity">
+                <p>{movie.popularity}</p>
+                <p>{movie.vote_average}</p>
+              </div>
+
+              <p className="movie__overview">{movie.overview}</p>
             </div>
 
-            <p className="movie__overview">{movie.overview}</p>
+            <figure className="movie__details-image">
+              <img
+                src={`${import.meta.env.VITE_BASE_IMG_URL}${movie.poster_path}`}
+                alt={`Movie poster for ${movie.title}`}
+              />
+            </figure>
           </div>
-
-          <figure className="movie__details-image">
-            <img
-              src={`${import.meta.env.VITE_BASE_IMG_URL}${movie.poster_path}`}
-              alt={`Movie poster for ${movie.title}`}
-            />
-          </figure>
         </Modal>
       </div>
 
