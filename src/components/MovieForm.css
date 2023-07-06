@@ -1,4 +1,10 @@
 .query-form {
+  max-width: 50ch;
+  margin-inline: auto;
+}
+
+.query-form > * {
+  margin-block-end: 1rem;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -8,4 +14,12 @@
 .query-input {
   padding: 1rem;
   border: 2px solid var(--border-color);
+}
+
+#checkbox {
+  cursor: pointer;
+  margin: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  aspect-ratio: 1 / 1;
 }

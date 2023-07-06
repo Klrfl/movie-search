@@ -19,10 +19,11 @@ const movieNames = [
 export default function MovieForm({ onSearch }) {
   const movieInput = useRef(null);
   const [movieSuggestion, setMovieSuggestion] = useState(movieNames[0]);
+  const [adult, setAdult] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
-    onSearch(movieInput.current.value);
+    onSearch(movieInput.current.value, adult);
   }
 
   useEffect(() => {
@@ -33,15 +34,29 @@ export default function MovieForm({ onSearch }) {
 
   return (
     <form className="query-form" onSubmit={(e) => handleSubmit(e)}>
-      <input
-        type="text"
-        placeholder={movieSuggestion}
-        className="query-input"
-        ref={movieInput}
-      />
-      <button type="submit" className="btn btn--submit">
-        Submit
-      </button>
+      <div className="main-query">
+        <input
+          type="text"
+          placeholder={movieSuggestion}
+          className="query-input"
+          ref={movieInput}
+        />
+        <button type="submit" className="btn btn--submit">
+          Submit
+        </button>
+      </div>
+
+      <div className="include-adult">
+        <label htmlFor="checkbox">Include adult?</label>
+
+        <input
+          type="checkbox"
+          name="include-adult"
+          id="checkbox"
+          checked={adult}
+          onChange={() => setAdult(!adult)}
+        />
+      </div>
     </form>
   );
 }
