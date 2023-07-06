@@ -17,7 +17,11 @@
 
 .movie__title {
   margin-block: 0 1rem;
-  line-height: 0.9;
+  line-height: 1;
+}
+
+.movie__original-title {
+  font-size: 0.85rem;
 }
 
 .movie__vote-and-popularity {
@@ -52,4 +56,8 @@
 .movie__details-image,
 .movie__image {
   margin: 0 auto;
+}
+
+.movie__image image {
+  width: 100%;
 }
