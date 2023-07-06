@@ -16,7 +16,7 @@ export default function Movie({ movie }) {
   return (
     <div className="movie">
       <div className="movie__data">
-        <h2 className="movie__title">{movie.title}</h2>
+        <h3 className="movie__title">{movie.title}</h3>
         <p className="movie__original-title">{movie.original_title}</p>
         <p>
           Released on{" "}
@@ -41,7 +41,7 @@ export default function Movie({ movie }) {
           <div className="movie__details-content">
             <div className="movie__details-text">
               <h3 className="movie__title">{movie.title}</h3>
-              <p className="movie__title">{movie.original_title}</p>
+              <p className="movie__original-title">{movie.original_title}</p>
 
               <div className="movie_vote-and-popularity">
                 <p>{movie.popularity}</p>
@@ -65,7 +65,7 @@ export default function Movie({ movie }) {
         <img
           src={`${import.meta.env.VITE_BASE_IMG_URL}${movie.poster_path}`}
           alt={`Poster for ${movie.title}`}
-          width="400"
+          width="500"
         />
       </figure>
     </div>
