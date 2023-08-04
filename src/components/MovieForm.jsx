@@ -22,7 +22,7 @@ export default function MovieForm({ onSearch }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    onSearch(movieInput.current.value, adult);
+    onSearch(movieInput.current.value);
   }
 
   useEffect(() => {
