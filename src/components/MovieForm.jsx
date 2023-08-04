@@ -19,7 +19,6 @@ const movieNames = [
 export default function MovieForm({ onSearch }) {
   const movieInput = useRef(null);
   const [movieSuggestion, setMovieSuggestion] = useState(movieNames[0]);
-  const [adult, setAdult] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -44,18 +43,6 @@ export default function MovieForm({ onSearch }) {
         <button type="submit" className="btn btn--submit">
           Submit
         </button>
-      </div>
-
-      <div className="include-adult">
-        <label htmlFor="checkbox">Include adult?</label>
-
-        <input
-          type="checkbox"
-          name="include-adult"
-          id="checkbox"
-          checked={adult}
-          onChange={() => setAdult(!adult)}
-        />
       </div>
     </form>
   );

@@ -14,12 +14,12 @@ function App() {
     "Please search for a movie."
   );
 
-  async function getSearchString(inputString, adult) {
+  async function getSearchString(inputString) {
     try {
       const request = await fetch(
         `${
           import.meta.env.VITE_BASE_API_URL
-        }/search/movie?query=${inputString}&include_adult=${adult}&api_key=${
+        }/search/movie?query=${inputString}&api_key=${
           import.meta.env.VITE_API_KEY
         }`
       );
