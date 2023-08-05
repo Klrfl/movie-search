@@ -13,18 +13,37 @@ export default function Movie({ movie }) {
     setModalIsOpen(false);
   }
 
+  function formatDate(releaseDate) {
+    let returnDate;
+    try {
+      const date = new Date(releaseDate);
+      const options = {
+        year: "numeric",
+        month: "long",
+        day: "2-digit",
+      };
+
+      returnDate = new Intl.DateTimeFormat("en", options).format(date);
+    } catch (err) {
+      console.log(returnDate);
+      console.error(err.message);
+    }
+
+    return returnDate;
+  }
+
   return (
     <div className="movie">
       <div className="movie__data">
         <h3 className="movie__title">{movie.title}</h3>
         <p className="movie__original-title">{movie.original_title}</p>
         <p>
-          Released on{" "}
-          {Intl.DateTimeFormat("en", {
+          Released on {formatDate(movie.release_date)}
+          {/* {Intl.DateTimeFormat("en", {
             year: "numeric",
             month: "long",
             day: "2-digit",
-          }).format(new Date(movie.release_date))}
+          }).format(new Date(movie.release_date))} */}
         </p>
 
         <div className="movie__vote-and-popularity">
