@@ -10,12 +10,14 @@ import { useState } from "react";
 
 function App() {
   const [movieArray, setMovieArray] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(
     "Please search for a movie."
   );
 
   async function getSearchString(inputString) {
     try {
+      setIsLoading(true);
       const request = await fetch(
         `${
           import.meta.env.VITE_BASE_API_URL
@@ -28,6 +30,8 @@ function App() {
     } catch (error) {
       setErrorMessage(error.message);
       console.error(error.message);
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -87,7 +91,8 @@ function App() {
         <h2>Search results</h2>
 
         <div className="movies">
-          {movieArray.length === 0 && <p>{errorMessage}</p>}
+          {isLoading && <p>Loading...</p>}
+          {movieArray.length === 0 && !isLoading && <p>{errorMessage}</p>}
           {movieArray.map((movie) => (
             <Movie key={movie.id} movie={movie}></Movie>
           ))}
